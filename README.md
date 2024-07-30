@@ -4,6 +4,7 @@ Experiments related to Configcat and OpenFeature; mostly running through the doc
 
 ## Contents
 * `cc-server` - a simple HTTP server that uses the ConfigCat SDK directly.
+* `os-server` - a simple HTTP server that uses the OpenFeature SDK.
 
 ## ConfigCat Notes
 
@@ -47,3 +48,8 @@ Experiments related to Configcat and OpenFeature; mostly running through the doc
   * https://configcat.com/docs/sdk-reference/go/#flag-overrides
   * Changing local flags json needs a restart of the app.
   * Can also do it inline when creating the client rather than needing a file on disk.
+
+## OpenFeature Notes
+
+* Evaluation contexts can be set at several levels, can have some values that are always present by setting them on the client
+  * https://openfeature.dev/docs/reference/concepts/evaluation-context
