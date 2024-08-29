@@ -33,12 +33,13 @@ func FeatureFlagMiddleware(next http.Handler) http.Handler {
 			return
 		}
 
+		user, ok := userMap[token]
 		if !ok {
 			http.Error(w, "Unauthorized", http.StatusUnauthorized)
 			return
 		}
 
-		evalContext := openfeature.NewEvaluationContext(token, userMap[token])
+		evalContext := openfeature.NewEvaluationContext(token, user)
 		r = r.WithContext(context.WithValue(r.Context(), contextKey("evalContext"), evalContext))
 
 		next.ServeHTTP(w, r)
